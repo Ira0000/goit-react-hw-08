@@ -1,0 +1,31 @@
+.conactForm {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.formFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.errorMessage {
+  font-size: 12px;
+  color: red;
+}
+
+.formBtn {
+  border: 1px solid black;
+  padding: 8px 5px 8px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 90px;
+  background-color: aquamarine;
+  align-self: center;
+}

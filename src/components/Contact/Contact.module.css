@@ -1,0 +1,31 @@
+.contactWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  width: 300px;
+  margin: auto;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.deleteBtn {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 60px;
+  padding: 8px;
+}
