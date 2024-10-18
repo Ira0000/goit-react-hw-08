@@ -2,8 +2,11 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import s from "./LoginPage.module.css";
 import { useId } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/auth/operations";
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
   const passwordFieldId = useId();
   const emailFieldId = useId();
 
@@ -11,10 +14,13 @@ const LoginPage = () => {
     email: "",
     password: "",
   };
-  const handleSubmit = (values, options) => {
+
+  const handleLogin = (values, options) => {
     console.log(values);
+    dispatch(login(values));
     options.resetForm();
   };
+
   const FeedbackSchema = Yup.object().shape({
     email: Yup.string()
       .min(3, "Too Short!")
@@ -22,7 +28,7 @@ const LoginPage = () => {
       .required("Required"),
     password: Yup.string()
       .min(6, "Too Short!")
-      .max(15, "Too Long!")
+      .max(25, "Too Long!")
       .required("Required"),
   });
 
@@ -32,7 +38,7 @@ const LoginPage = () => {
         <div className={s.card}>
           <Formik
             initialValues={initialValues}
-            onSubmit={handleSubmit}
+            onSubmit={handleLogin}
             validationSchema={FeedbackSchema}
           >
             <Form className={s.form}>
