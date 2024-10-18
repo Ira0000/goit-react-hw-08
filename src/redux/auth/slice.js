@@ -9,6 +9,11 @@ const initialState = {
   token: "",
   isLoggedIn: false,
   isRefreshing: false,
+  error: null,
+};
+
+const handleRejected = (state, action) => {
+  state.error = action.payload;
 };
 
 const slice = createSlice({
@@ -26,6 +31,7 @@ const slice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
+      .addCase(login.rejected, handleRejected)
       .addCase(logout.fulfilled, () => initialState);
   },
 });

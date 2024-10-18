@@ -32,7 +32,7 @@ export const login = createAsyncThunk(
   "login",
   async (credentials, thunkApi) => {
     try {
-      const { data } = await goitApi.post(("users/login", credentials));
+      const { data } = await goitApi.post("users/login", credentials);
       setAuthHeader(data.token);
       return data;
     } catch (error) {
@@ -62,7 +62,7 @@ export const refresh = createAsyncThunk("refresh", async (_, thunkApi) => {
 
     setAuthHeader(savedToken);
     // робимо запит за обліковими даними
-    const { data } = await axios.get("users/me");
+    const { data } = await goitApi.get("users/me");
     // повертаємо дані в слайс для опрацювання
     return data;
   } catch (error) {
