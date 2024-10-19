@@ -16,7 +16,7 @@ const clearAuthHeader = () => {
 };
 
 export const register = createAsyncThunk(
-  "register",
+  "auth/register",
   async (credentials, thunkApi) => {
     try {
       const { data } = await goitApi.post("users/signup", credentials);
@@ -29,7 +29,7 @@ export const register = createAsyncThunk(
 );
 
 export const login = createAsyncThunk(
-  "login",
+  "auth/login",
   async (credentials, thunkApi) => {
     try {
       const { data } = await goitApi.post("users/login", credentials);
@@ -41,18 +41,20 @@ export const login = createAsyncThunk(
   }
 );
 
-export const logout = createAsyncThunk("logout", async (_, thunkApi) => {
+export const logout = createAsyncThunk("auth/logout", async (_, thunkApi) => {
   try {
     await goitApi.post("users/logout");
+    clearAuthHeader();
   } catch (error) {
     return thunkApi.rejectWithValue(error.message);
   }
 });
 
-export const refresh = createAsyncThunk("refresh", async (_, thunkApi) => {
+export const refresh = createAsyncThunk("auth/refresh", async (_, thunkApi) => {
   try {
     // Отримуємо збережений токен з локал стореджа
     const savedToken = thunkApi.getState().auth.token;
+    console.log(savedToken);
 
     // якщо там нічого нема, не виконуємо запит
     if (!savedToken) {
