@@ -16,7 +16,6 @@ const LoginPage = () => {
   };
 
   const handleLogin = (values, options) => {
-    console.log(values);
     dispatch(login(values));
     options.resetForm();
   };

@@ -7,6 +7,7 @@ import { refresh } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { RestrictedRoute } from "./components/RestrictedRoute";
+import Loader from "./components/Loader/Loader";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() =>
@@ -17,19 +18,19 @@ const ContactsPage = lazy(() => import("./pages/ContactsPage/ContactsPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 function App() {
-  const isRefreshing = useSelector(selectIsRefreshing);
-
   // Коли людина заходить до нас в додаток, редакс виконує запит на сервер для отримання інформації про користувача
   // Це відбувається автоматично за допомогою useEffect
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(refresh());
   }, [dispatch]);
+  const isRefreshing = useSelector(selectIsRefreshing);
+
   return isRefreshing ? (
-    <p>Refreshing user...</p>
+    <Loader />
   ) : (
     <Layout>
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route

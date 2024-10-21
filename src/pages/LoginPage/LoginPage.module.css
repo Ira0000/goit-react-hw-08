@@ -1,3 +1,11 @@
+/* Remove chrome autofill color from inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000000s ease-in-out 0s;
+}
+
 .loginPage {
   padding: 45px 20px 45px 15px;
 }
@@ -41,6 +49,14 @@
   padding: 8px;
   padding-left: 15px;
   height: 40px;
+  outline: none;
+
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input:hover,
+.input:focus {
+  border: 2px solid #86d86d;
 }
 
 .errorMessage {
@@ -50,10 +66,17 @@
 
 .loginBtn {
   color: #d1dbff;
+  font-size: 15px;
   width: 100%px;
   height: 40px;
   border-radius: 5px;
-  background-color: #4a00ff;
+  background-color: #2bbbd2;
+
+  transition: background-color 250ms ease-in-out;
+}
+
+.loginBtn:hover {
+  background-color: #19b88f;
 }
 
 .textWrapper {

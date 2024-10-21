@@ -6,8 +6,8 @@ export const goitApi = axios.create({
 });
 
 // Utility to add JWT
-const setAuthHeader = (token) => {
-  goitApi.defaults.headers.common.Authorization = `Bearer ${token}`;
+const setAuthHeader = (savedToken) => {
+  goitApi.defaults.headers.common.Authorization = `Bearer ${savedToken}`;
 };
 
 // Utility to remove JWT
@@ -54,7 +54,7 @@ export const refresh = createAsyncThunk("auth/refresh", async (_, thunkApi) => {
   try {
     // Отримуємо збережений токен з локал стореджа
     const savedToken = thunkApi.getState().auth.token;
-    console.log(savedToken);
+    // console.log(savedToken);
 
     // якщо там нічого нема, не виконуємо запит
     if (!savedToken) {
@@ -64,7 +64,7 @@ export const refresh = createAsyncThunk("auth/refresh", async (_, thunkApi) => {
 
     setAuthHeader(savedToken);
     // робимо запит за обліковими даними
-    const { data } = await goitApi.get("users/me");
+    const { data } = await goitApi.get("users/current");
     // повертаємо дані в слайс для опрацювання
     return data;
   } catch (error) {

@@ -1,0 +1,13 @@
+.contactsPageWrapper {
+  height: 100%;
+  padding: 15px;
+  background-image: url("https://img.freepik.com/free-vector/nature-leaves-white-background-design_1017-36616.jpg?t=st=1729411759~exp=1729415359~hmac=1ed9730ccb47d5958cce67756b794047452a7127fa54b69559d6fde467f7ee06&w=2000");
+  display: flex;
+  /* flex-direction: column; */
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.contactsWrapper {
+  width: 70%;
+}

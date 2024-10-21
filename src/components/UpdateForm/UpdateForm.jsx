@@ -1,16 +1,10 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { nanoid } from "nanoid";
-import s from "./ContactForm.module.css";
+import s from "./UpdateForm.module.css";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/operations";
+import { updateContact } from "../../redux/contacts/operations";
 import toast from "react-hot-toast";
-
-const initialData = {
-  id: "",
-  name: "",
-  number: "",
-};
 
 const contactSchema = Yup.object().shape({
   name: Yup.string()
@@ -23,28 +17,37 @@ const contactSchema = Yup.object().shape({
     .required("Required!"),
 });
 
-const ContactForm = () => {
+const UpdateForm = ({ contactInfo, closeModal }) => {
+  const initialData = {
+    name: contactInfo.name,
+    number: contactInfo.number,
+  };
   const nameFieldId = nanoid();
   const numberFieldId = nanoid();
 
   const dispatch = useDispatch();
 
-  const handleAddContact = (values, actions) => {
+  const handleUpdateContact = (values, actions) => {
+    const contactId = contactInfo.id;
     dispatch(
-      addContact({
-        id: "",
-        name: values.name,
-        number: values.number,
+      updateContact(contactId, {
+        name: String(values.name),
+        number: String(values.number),
       })
     );
-    toast.success("Contact added!");
+    // console.log(contactId);
+    // console.log(values.name);
+    // console.log(values.number);
+
+    toast.success("Contact Updated!");
     actions.resetForm();
+    closeModal();
   };
 
   return (
     <Formik
       initialValues={initialData}
-      onSubmit={handleAddContact}
+      onSubmit={handleUpdateContact}
       validationSchema={contactSchema}
     >
       <Form className={s.conactForm}>
@@ -74,11 +77,11 @@ const ContactForm = () => {
           />
         </div>
         <button type="submit" className={s.formBtn}>
-          Add contact
+          Update
         </button>
       </Form>
     </Formik>
   );
 };
 
-export default ContactForm;
+export default UpdateForm;

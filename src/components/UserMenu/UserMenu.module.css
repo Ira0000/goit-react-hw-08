@@ -1,0 +1,20 @@
+.userMenuWrapper {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.logoutBtn {
+  font-size: 14px;
+  padding: 5px;
+  width: 100px;
+  height: 35px;
+  background-color: #6cd780;
+  border-radius: 15px;
+
+  transition: background-color 250ms ease-in-out;
+}
+
+.logoutBtn:hover {
+  background-color: #19b88f;
+}

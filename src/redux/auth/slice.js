@@ -40,7 +40,7 @@ const slice = createSlice({
       .addCase(refresh.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoggedIn = true;
-        state.refresh = false;
+        state.isRefreshing = false;
       })
       .addCase(refresh.rejected, (state) => {
         state.isRefreshing = false;
