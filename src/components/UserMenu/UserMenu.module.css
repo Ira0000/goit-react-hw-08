@@ -1,14 +1,23 @@
 .userMenuWrapper {
   display: flex;
+  flex-direction: column;
   gap: 15px;
-  align-items: center;
+  /* align-items: center; */
+  align-items: flex-end;
+}
+
+.text {
+  font-size: 16px;
 }
 
 .logoutBtn {
-  font-size: 14px;
+  /* font-size: 14px; */
+  font-size: 12px;
   padding: 5px;
-  width: 100px;
-  height: 35px;
+  /* width: 100px;
+  height: 35px; */
+  width: 60px;
+  height: 25px;
   background-color: #6cd780;
   border-radius: 15px;
 

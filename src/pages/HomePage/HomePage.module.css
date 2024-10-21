@@ -1,18 +1,23 @@
 .homePageWrapper {
-  height: 100%;
+  background-color: #ececec;
   background-image: url("https://img.freepik.com/free-vector/palm-trees-background_53876-91256.jpg?t=st=1729412386~exp=1729415986~hmac=f4d7c09cbf557f5b74750e8b8cca00c7cf9a56a9c6151871a94bcb98a0db7096&w=2000");
+  background-repeat: repeat;
   display: flex;
   flex-direction: column;
   gap: 50px;
   justify-content: center;
   align-items: center;
+  padding: 15px;
+  padding-top: 40px;
 }
 
 .homeHeader {
+  color: #000;
+  text-align: center;
   font-size: 35px;
 }
 
 .homeText {
   font-size: 25px;
-  width: 600px;
+  width: 250px;
 }

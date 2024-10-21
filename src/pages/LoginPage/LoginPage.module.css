@@ -7,17 +7,19 @@ input:-webkit-autofill:active {
 }
 
 .loginPage {
-  padding: 45px 20px 45px 15px;
+  /* padding: 45px 20px 45px 15px; */
+  padding: 20px;
 }
 
 .loginContent {
   background-color: transparent;
   display: flex;
+  flex-direction: column;
   gap: 30px;
 }
 
 .card {
-  width: 45vw;
+  /* width: 45vw; */
   border-radius: 8px;
   background-color: #fff;
   padding: 20px;
@@ -80,13 +82,14 @@ input:-webkit-autofill:active {
 }
 
 .textWrapper {
-  width: 65vw;
+  /* width: 65vw; */
   background-color: transparent;
   margin-top: auto;
   margin-bottom: auto;
 }
 
 .header {
+  color: #2bbbd2;
   font-size: 45px;
   margin-bottom: 10px;
 }

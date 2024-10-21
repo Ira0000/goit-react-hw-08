@@ -3,31 +3,22 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { ImBin } from "react-icons/im";
 import Modal from "react-modal";
 import s from "./Contact.module.css";
-// import { useDispatch } from "react-redux";
-// import { deleteContact } from "../../redux/contacts/operations";
 import DeleteModal from "../DeleteModal/DeleteModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GrUpdate } from "react-icons/gr";
 
 Modal.setAppElement("#root");
-const customStyles = {
-  overlay: {
-    backgroundColor: "rgb(7 7 7 / 80%)",
-  },
-  content: {
-    top: "35%",
-    right: "32%",
-    bottom: "20%",
-    left: "32%",
-    padding: "20px",
-    borderRadius: "10px",
-    backgroundColor: "#fff",
-  },
-};
 
 const Contact = ({ contactInfo }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [updateContact, setUpdateContact] = useState(false);
+
+  useEffect(() => {
+    if (modalIsOpen) {
+      document.body.style.overflow = "hidden";
+    } else document.body.style.overflow = "scroll";
+    return () => {};
+  }, [modalIsOpen]);
 
   const openDeleteModal = () => {
     setUpdateContact(false);
@@ -66,7 +57,9 @@ const Contact = ({ contactInfo }) => {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        className={s.modal}
+        overlayClassName={s.overlay}
+        // style={customStyles}
       >
         <DeleteModal
           contactInfo={contactInfo}

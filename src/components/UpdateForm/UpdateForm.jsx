@@ -30,7 +30,8 @@ const UpdateForm = ({ contactInfo, closeModal }) => {
   const handleUpdateContact = (values, actions) => {
     const contactId = contactInfo.id;
     dispatch(
-      updateContact(contactId, {
+      updateContact({
+        contactId,
         name: String(values.name),
         number: String(values.number),
       })

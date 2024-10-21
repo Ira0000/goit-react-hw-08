@@ -6,7 +6,7 @@ const AuthNav = () => {
     return clsx(s.link, isActive && s.active);
   };
   return (
-    <div>
+    <div className={s.wrapper}>
       <NavLink className={buildLinkClass} to="/register">
         Register
       </NavLink>

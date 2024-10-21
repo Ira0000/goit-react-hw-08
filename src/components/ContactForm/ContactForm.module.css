@@ -8,7 +8,8 @@ input:-webkit-autofill:active {
 
 .conactForm {
   background-color: white;
-  width: 450px;
+  /* width: 450px; */
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;

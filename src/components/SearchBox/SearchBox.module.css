@@ -12,10 +12,12 @@ input:-webkit-autofill:active {
   gap: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 300px;
+  /* width: 300px; */
+  width: 100%;
 }
 
 .input {
+  width: 100%;
   border: 1px solid #9ba3af;
   border-radius: 5px;
   padding: 8px;
