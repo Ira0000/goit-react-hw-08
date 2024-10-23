@@ -2,8 +2,10 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import s from "./LoginPage.module.css";
 import { useId } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/auth/operations";
+import { selectError } from "../../redux/auth/selectors";
+import toast, { Toaster } from "react-hot-toast";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -14,10 +16,12 @@ const LoginPage = () => {
     email: "",
     password: "",
   };
+  const error = useSelector(selectError);
 
   const handleLogin = (values, options) => {
     dispatch(login(values));
     options.resetForm();
+    if (error) return toast.error("Not correct e-mail or password!");
   };
 
   const FeedbackSchema = Yup.object().shape({
@@ -33,6 +37,7 @@ const LoginPage = () => {
 
   return (
     <div className={s.loginPage}>
+      <Toaster position="top-left" reverseOrder={false} />
       <div className={s.loginContent}>
         <div className={s.card}>
           <Formik
