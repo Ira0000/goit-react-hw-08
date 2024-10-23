@@ -1,0 +1,86 @@
+/* Remove chrome autofill color from inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000000s ease-in-out 0s;
+}
+
+.card {
+  /* width: 45vw; */
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 20px;
+  padding: 40px;
+  box-shadow: 0px 0px 11px -3px rgba(66, 68, 90, 1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.formFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.label {
+  margin-bottom: 8px;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid #9ba3af;
+  border-radius: 5px;
+  padding: 8px;
+  padding-left: 15px;
+  height: 40px;
+  outline: none;
+
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input:hover,
+.input:focus {
+  border: 2px solid #86d86d;
+}
+
+.errorMessage {
+  font-size: 12px;
+  color: red;
+}
+
+.loginBtn {
+  color: #d1dbff;
+  font-size: 15px;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #2bbbd2;
+
+  transition: background-color 250ms ease-in-out;
+}
+
+.loginBtn:hover {
+  background-color: #19b88f;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .card {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .card {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
