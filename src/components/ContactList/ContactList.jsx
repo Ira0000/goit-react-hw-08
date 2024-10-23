@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
 import s from "./ContactList.module.css";
 import {
+  selectContacts,
   selectError,
   selectFilteredContacts,
   selectLoading,
@@ -13,13 +14,16 @@ const ContactList = () => {
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const invalidFilterValue = useSelector(selectFilterInvalid);
+  const contactList = useSelector(selectContacts);
   const filteredData = useSelector(selectFilteredContacts);
 
   return (
     <>
       {loading && <Loader />}
       {error && <h2>Something went wrong!</h2>}
-      {!invalidFilterValue && filteredData.length > 0 ? (
+      {contactList.length <= 0 ? (
+        <h2>No contacts yet</h2>
+      ) : !invalidFilterValue && filteredData.length > 0 ? (
         <ul className={s.contactCard}>
           {filteredData.map((data) => {
             return (
