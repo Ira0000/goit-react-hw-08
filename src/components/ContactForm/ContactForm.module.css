@@ -68,3 +68,19 @@ input:-webkit-autofill:active {
 .formBtn:hover {
   background-color: #19b88f;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .conactForm {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .conactForm {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

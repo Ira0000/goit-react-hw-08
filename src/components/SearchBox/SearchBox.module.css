@@ -32,3 +32,19 @@ input:-webkit-autofill:active {
 .input:focus {
   border: 2px solid #86d86d;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .searchContainer {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .searchContainer {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

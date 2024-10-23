@@ -97,3 +97,42 @@ input:-webkit-autofill:active {
 .text {
   font-size: 20px;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .loginPage {
+    padding: 25px;
+  }
+
+  .card {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .loginPage {
+    padding: 25px;
+  }
+  .loginContent {
+    flex-direction: row;
+  }
+
+  .card {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header {
+    text-align: center;
+  }
+
+  .textWrapper {
+    width: 60%;
+  }
+}

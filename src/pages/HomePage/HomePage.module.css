@@ -21,3 +21,25 @@
   font-size: 25px;
   width: 250px;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .homePageWrapper {
+    padding: 25px;
+    padding-top: 120px;
+  }
+  .homeText {
+    font-size: 25px;
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .homePageWrapper {
+    padding: 40px;
+    padding-top: 120px;
+  }
+  .homeText {
+    font-size: 25px;
+    width: 800px;
+  }
+}
