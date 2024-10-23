@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import { fetchContacts } from "../../redux/contacts/operations";
 
 import s from "./ContactsPage.module.css";
-import { Toaster } from "react-hot-toast";
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -21,7 +20,6 @@ const ContactsPage = () => {
         <SearchBox />
         <ContactList />
       </div>
-      <Toaster position="top-left" reverseOrder={false} />
     </div>
   );
 };

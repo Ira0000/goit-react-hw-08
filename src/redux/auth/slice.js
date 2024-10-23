@@ -16,6 +16,10 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
+const handlePending = (state) => {
+  state.error = "";
+};
+
 const slice = createSlice({
   name: "auth",
   initialState,
@@ -29,11 +33,13 @@ const slice = createSlice({
       })
       .addCase(register.rejected, handleRejected)
       .addCase(login.fulfilled, (state, action) => {
+        state.error = "";
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
-        state.error = "";
       })
+      .addCase(register.pending, handlePending)
+      .addCase(login.pending, handlePending)
       .addCase(login.rejected, handleRejected)
       .addCase(logout.fulfilled, () => initialState)
       .addCase(refresh.pending, (state) => {

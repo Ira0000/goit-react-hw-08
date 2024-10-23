@@ -1,11 +1,9 @@
 import s from "./RegistrationPage.module.css";
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
-import { Toaster } from "react-hot-toast";
 
 const RegistrationPage = () => {
   return (
     <div className={s.loginPage}>
-      <Toaster position="top-left" reverseOrder={false} />
       <div className={s.loginContent}>
         <RegistrationForm />
         <div className={s.textWrapper}>

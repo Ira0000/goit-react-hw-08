@@ -1,6 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
-import { useId } from "react";
+import { useEffect, useId } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/auth/operations";
 import toast from "react-hot-toast";
@@ -19,14 +19,17 @@ const RegistrationForm = () => {
     email: "",
     password: "",
   };
-  const error = useSelector(selectError);
 
   const handleSubmit = (values, options) => {
     dispatch(register(values));
     options.resetForm();
-    if (error) return toast.error("Such user already exist!");
   };
-
+  const error = useSelector(selectError);
+  useEffect(() => {
+    if (error) {
+      toast.error("Such user already exists!");
+    }
+  }, [error]);
   const FeedbackSchema = Yup.object().shape({
     name: Yup.string()
       .min(3, "Too Short!")
@@ -100,11 +103,6 @@ const RegistrationForm = () => {
               component="span"
             />
           </div>
-          {/* <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label> */}
           <button type="submit" className={s.loginBtn}>
             Register
           </button>

@@ -1,11 +1,11 @@
-import { useId } from "react";
+import { useEffect, useId } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/auth/operations";
 import { selectError } from "../../redux/auth/selectors";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
-import toast from "react-hot-toast";
 import s from "./LoginForm.module.css";
+import toast from "react-hot-toast";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -16,13 +16,17 @@ const LoginForm = () => {
     email: "",
     password: "",
   };
-  const error = useSelector(selectError);
 
   const handleLogin = (values, options) => {
     dispatch(login(values));
     options.resetForm();
-    if (error) return toast.error("Not correct e-mail or password!");
   };
+  const error = useSelector(selectError);
+  useEffect(() => {
+    if (error) {
+      toast.error("Not correct e-mail or password!");
+    }
+  }, [error]);
   const FeedbackSchema = Yup.object().shape({
     email: Yup.string()
       .min(3, "Too Short!")
@@ -75,11 +79,6 @@ const LoginForm = () => {
               component="span"
             />
           </div>
-          {/* <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label> */}
           <button type="submit" className={s.loginBtn}>
             Login
           </button>
