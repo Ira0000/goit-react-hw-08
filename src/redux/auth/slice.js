@@ -25,12 +25,14 @@ const slice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.error = "";
       })
       .addCase(register.rejected, handleRejected)
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.error = "";
       })
       .addCase(login.rejected, handleRejected)
       .addCase(logout.fulfilled, () => initialState)
